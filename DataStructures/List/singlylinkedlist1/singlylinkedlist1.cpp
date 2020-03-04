@@ -6,12 +6,15 @@ using namespace std;
 //create a node template
 struct node
 {
+    //a node should have a key in order to let us
+    //know what node to delete or edit
+    int key;
     int data;
     node *ptrNext;
 };
 
 //create a linkedlist class
-class linkedList
+class LinkedList
 {
     //to keep track the head is very important
     //since linked list are connected, once we can
@@ -22,7 +25,7 @@ private:
 public:
     //use class constructor to set initial node as NULL,
     //i.e. no node
-    linkedList()
+    LinkedList()
     {
         head = NULL;
         tail = NULL;
@@ -40,20 +43,6 @@ public:
         return tail;
     }
 
-    //this functino put a new node at the front of the list
-    //hence make it a head
-    void putFront(int data)
-    {
-        //allocate a new space for new node
-        node *tmp = new node;
-        //store the data into this new node
-        tmp->data = data;
-        //make this new node point to the "old" head
-        tmp->ptrNext = head;
-        //update the head in this class, now the new head is simply tmp
-        head = tmp;
-    }
-    //@TODO
     //this function concatenate two list into one
     //here we use a recursion approach
     static void concateList(node *lista, node *listb)
@@ -84,7 +73,47 @@ public:
         }
     }
 
-    //@TODO
+    //this function tells if a list is empty
+    void isEmpty()
+    {
+        if (head == NULL && tail == NULL)
+        {
+            cout << "Yes";
+        }
+        else
+        {
+            cout << "No";
+        }
+    }
+
+    //this function search a node by key and
+    //return the reference of that node
+    node *searchNode(int key)
+    {
+        node *tmp = new node;
+        tmp = head;
+        for (; tmp; tmp->ptrNext)
+        {
+            if (tmp->key == key)
+            {
+                return tmp;
+            }
+        }
+    }
+    //this function put a new node at the front of the list
+    //hence make it a head
+    void putFront(int data)
+    {
+        //allocate a new space for new node
+        node *tmp = new node;
+        //store the data into this new node
+        tmp->data = data;
+        //make this new node point to the "old" head
+        tmp->ptrNext = head;
+        //update the head in this class, now the new head is simply tmp
+        head = tmp;
+    }
+
     //this function can insert a new node after a node
     void putAfter(node *a, int data)
     {
@@ -99,7 +128,6 @@ public:
         a->ptrNext = tmp;
     }
 
-    //@TODO
     //this function can delete a node after "gg" node
     void deleteNode(node *gg)
     {
