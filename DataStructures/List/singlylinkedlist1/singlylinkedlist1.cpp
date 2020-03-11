@@ -92,7 +92,7 @@ public:
     {
         node *tmp = new node;
         tmp = head;
-        for (; tmp; tmp->ptrNext)
+        for (; tmp; tmp = tmp->ptrNext)
         {
             if (tmp->key == key)
             {
@@ -186,4 +186,5 @@ int main()
     //4. Delete node from list
     //5. Insert node to list (front, back or in between)
     //6. Concate list
+    cout << "Testing" << endl;
 }
