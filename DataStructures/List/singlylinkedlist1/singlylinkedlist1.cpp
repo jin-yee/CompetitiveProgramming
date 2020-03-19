@@ -129,7 +129,7 @@ public:
     }
 
     //this function can delete a node after "gg" node
-    void deleteNode(node *gg)
+    void deleteTheNodeAfter(node *gg)
     {
         //first, create a node and point it to "a" node that we wish to delete
         node *tmp = new node;
@@ -139,7 +139,7 @@ public:
     }
 
     //this function can add a node to the list
-    void addNode(int data)
+    void appendNode(int data)
     {
         node *tmp = new node;
         //tmp is the new or last node, so it's always
