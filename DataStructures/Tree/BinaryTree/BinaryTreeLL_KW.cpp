@@ -29,7 +29,7 @@ public:
 void Tree::preorderTraversal(Node *node){
 	if (node == NULL)
 		return;
-	cout << node->key <<endl;
+	cout << node->key << ", ";
 	preorderTraversal(node->leftNode);
 	preorderTraversal(node->rightNode);
 }
@@ -38,7 +38,7 @@ void Tree::inorderTraversal(Node *node) {
 	if (node == NULL)
 		return;
 	inorderTraversal(node->leftNode);
-	cout << node->key <<endl;
+	cout << node->key << ", ";
 	inorderTraversal(node->rightNode);
 }
 
@@ -47,7 +47,7 @@ void Tree::postorderTraversal(Node *node) {
 		return;
 	postorderTraversal(node->leftNode);
 	postorderTraversal(node->rightNode); 
-	cout << node->key <<endl;
+	cout << node->key << ", ";
 }
 
 void Tree::levelorderTraversal() {
@@ -62,7 +62,7 @@ void Tree::levelorderTraversal() {
 		q.pop_front();
 		if (node->leftNode != NULL) q.push_back(node->leftNode);
 		if (node->rightNode != NULL) q.push_back(node->rightNode);
-		cout << node->key <<endl;
+		cout << node->key << ", ";
 	}
 }
 
@@ -124,7 +124,7 @@ int main () {
 
 	// Create a tree that looks like this
 	//            1
-	//		    /   \
+	//          /   \
 	//         /     \
 	//        2       3
 	//       / \     / \
@@ -135,16 +135,16 @@ int main () {
 	for(int i = 1 ;i<9; i++) {
 		tree.insert(i);
 	}
-	cout << "post order" << endl;
+	cout << "post order: " << endl;
 	tree.postorderTraversal(tree.getRoot());
-	cout << "in order" << endl;
+	cout << endl << "in order: " << endl;
 	tree.inorderTraversal(tree.getRoot());
-	cout << "pre order" << endl;
+	cout << endl << "pre order: " << endl;
 	tree.preorderTraversal(tree.getRoot());
-	cout << "level order" << endl;
+	cout << endl << "level order: " << endl;
 	tree.levelorderTraversal();
 
-	cout << "searching for value : 2" <<endl;
+	cout << endl << "searching for value : 2" <<endl;
 	tree.search(2);
 
 	cout<< "searching for value: 20" <<endl;
