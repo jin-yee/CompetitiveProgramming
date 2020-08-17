@@ -1,4 +1,3 @@
-*.exe
-.vscode
-.pdf
-*.in
+*
+!*.cpp
+!Makefile
